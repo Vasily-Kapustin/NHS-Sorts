@@ -1,3 +1,6 @@
+
+import java.util.Random;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,7 +14,13 @@
 public class Sorts {
 
     public static void main(String[] args) {
-        Integer[] ints = new Integer[]{9, 7, 8, 6, 7, 5, 6, 4, 5, 3, 2, 4, 1};
+        Integer[] ints = new Integer[15];
+        Random r = new Random();
+        for(int i=0;i<15;i++){
+        ints[i]=r.nextInt(100);
+        System.out.println(ints[i]);
+        }
+        System.out.println();
         ints = (Integer[]) selectionSort(ints);
         for (int i = 0; i < ints.length; i++) {
             System.out.println(ints[i]);
