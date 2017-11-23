@@ -9,13 +9,23 @@
  * @author Zhaojingyu
  */
 public class Sorts {
-    public static Comparable[] selectionSort(Comparable[] list){
-    for(int i=0;i<list.length;i++){
-        
-    for(int j=i;j<list.length;j++){
-    
+    public static void main(String[] args){
     
     }
-    }
+
+    public static Comparable[] selectionSort(Comparable[] list) {
+        for (int i = 0; i < list.length; i++) {
+            int minIndex = i;
+            for (int j = i; j < list.length; j++) {
+                if (list[j].compareTo(list[i]) < 0) {
+                    minIndex = j;
+                }
+
+            }
+            Comparable temp = list[i];
+            list[i]=list[minIndex];
+            list[minIndex]=temp;
+        }
+        return list;
     }
 }
