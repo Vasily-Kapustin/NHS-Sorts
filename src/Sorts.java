@@ -23,9 +23,25 @@ public class Sorts {
         for (int i = 0; i < ints.length; i++) {
             System.out.println(ints[i]);
         }
-        
+
         //Bubble sort
-        
+        System.out.println("Bubble Sort");
+        Comparable[] list = new Comparable[15];
+        Random r2 = new Random();
+        System.out.print("Unsorted: ");
+        String unsorted = "";
+        for (int i = 0; i < 15; i++) {
+            list[i] = r.nextInt(100);
+            unsorted += list[i] + ",";
+        }
+        System.out.println(unsorted.substring(0, unsorted.length() - 1));
+        list = bubbleSort(list);
+        System.out.print("Sorted: ");
+        String sorted = "";
+        for (int i = 0; i < 15; i++) {
+            sorted += list[i] + ",";
+        }
+        System.out.println(sorted.substring(0, sorted.length() - 1));
 
     }
 
@@ -75,13 +91,16 @@ public class Sorts {
             //Loop through the array
             for (int i = 0; i < list.length; i++) {
                 //Compare the element and the element above it
-                if (list[i].compareTo(list[i + 1]) < 0) {
-                    //Swap the two elements
-                    temp = list[i];
-                    list[i] = list[i + 1];
-                    list[i + 1] = temp;
-                    //Swap was made
-                    swap = true;
+                try {
+                    if (list[i].compareTo(list[i + 1]) > 0) {
+                        //Swap the two elements
+                        temp = list[i];
+                        list[i] = list[i + 1];
+                        list[i + 1] = temp;
+                        //Swap was made
+                        swap = true;
+                    }
+                } catch (ArrayIndexOutOfBoundsException e) {
                 }
             }
         } while (swap);
