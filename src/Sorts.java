@@ -26,23 +26,26 @@ public class Sorts {
 
         //Bubble sort
         System.out.println("Bubble Sort");
+        //Array with random numbers
         Comparable[] list = new Comparable[15];
         Random r2 = new Random();
+        //Output the unsorted array
         System.out.print("Unsorted: ");
         String unsorted = "";
         for (int i = 0; i < 15; i++) {
             list[i] = r.nextInt(100);
             unsorted += list[i] + ",";
-        }
+        }        
         System.out.println(unsorted.substring(0, unsorted.length() - 1));
+        //Sort the array using bubble sort
         list = bubbleSort(list);
+        //Output the sorted array
         System.out.print("Sorted: ");
         String sorted = "";
         for (int i = 0; i < 15; i++) {
             sorted += list[i] + ",";
         }
         System.out.println(sorted.substring(0, sorted.length() - 1));
-
     }
 
     public static Comparable[] selectionSort(Comparable[] list) {
