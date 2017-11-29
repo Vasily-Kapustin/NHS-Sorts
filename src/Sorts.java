@@ -1,4 +1,3 @@
-
 import java.util.Random;
 
 /*
@@ -6,7 +5,6 @@ import java.util.Random;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Zhaojingyu
@@ -16,9 +14,9 @@ public class Sorts {
     public static void main(String[] args) {
         Integer[] ints = new Integer[15];
         Random r = new Random();
-        for(int i=0;i<15;i++){
-        ints[i]=r.nextInt(100);
-        System.out.println(ints[i]);
+        for (int i = 0; i < 15; i++) {
+            ints[i] = r.nextInt(100);
+            System.out.println(ints[i]);
         }
         System.out.println();
         ints = (Integer[]) insertionSort(ints);
@@ -26,6 +24,9 @@ public class Sorts {
             System.out.println(ints[i]);
         }
         
+        //Bubble sort
+        
+
     }
 
     public static Comparable[] selectionSort(Comparable[] list) {
@@ -43,17 +44,47 @@ public class Sorts {
         }
         return list;
     }
-    
-    public static Integer[] insertionSort(Integer[] list){
-        for(int i = 1; i < list.length;i++){
-            for(int j = i; j > 0;j--){
-                if(list[j]<list[j-1]){
+
+    public static Integer[] insertionSort(Integer[] list) {
+        for (int i = 1; i < list.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if (list[j] < list[j - 1]) {
                     int temp = list[j];
-                    list[j]=list[j-1];
-                    list[j-1]=temp;
+                    list[j] = list[j - 1];
+                    list[j - 1] = temp;
                 }
             }
         }
-     return list;   
+        return list;
+    }
+
+    /**
+     * Using a bubble sort algorithm, sort a a comparable array.
+     *
+     * @param list The array to sort.
+     * @return The sorted array.
+     */
+    public static Comparable[] bubbleSort(Comparable[] list) {
+        //Track whether swaps were made
+        boolean swap;
+        //Temporary variable used when swapping elements
+        Comparable temp;
+        do {
+            //No swap was made
+            swap = false;
+            //Loop through the array
+            for (int i = 0; i < list.length; i++) {
+                //Compare the element and the element above it
+                if (list[i].compareTo(list[i + 1]) < 0) {
+                    //Swap the two elements
+                    temp = list[i];
+                    list[i] = list[i + 1];
+                    list[i + 1] = temp;
+                    //Swap was made
+                    swap = true;
+                }
+            }
+        } while (swap);
+        return list;
     }
 }
