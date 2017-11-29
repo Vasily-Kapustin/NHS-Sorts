@@ -11,43 +11,6 @@ import java.util.Random;
  */
 public class Sorts {
 
-    public static void main(String[] args) {
-        Integer[] ints = new Integer[15];
-        Random r = new Random();
-        for (int i = 0; i < 15; i++) {
-            ints[i] = r.nextInt(100);
-            System.out.println(ints[i]);
-        }
-        System.out.println();
-        ints = (Integer[]) insertionSort(ints);
-        for (int i = 0; i < ints.length; i++) {
-            System.out.println(ints[i]);
-        }
-
-        //Bubble sort
-        System.out.println("Bubble Sort");
-        //Array with random numbers
-        Comparable[] list = new Comparable[15];
-        Random r2 = new Random();
-        //Output the unsorted array
-        System.out.print("Unsorted: ");
-        String unsorted = "";
-        for (int i = 0; i < 15; i++) {
-            list[i] = r.nextInt(100);
-            unsorted += list[i] + ",";
-        }        
-        System.out.println(unsorted.substring(0, unsorted.length() - 1));
-        //Sort the array using bubble sort
-        list = bubbleSort(list);
-        //Output the sorted array
-        System.out.print("Sorted: ");
-        String sorted = "";
-        for (int i = 0; i < 15; i++) {
-            sorted += list[i] + ",";
-        }
-        System.out.println(sorted.substring(0, sorted.length() - 1));
-    }
-
     public static Comparable[] selectionSort(Comparable[] list) {
         for (int i = 0; i < list.length; i++) {
             int minIndex = i;
